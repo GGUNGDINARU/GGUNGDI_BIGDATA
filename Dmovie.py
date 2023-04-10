@@ -1,12 +1,14 @@
 # 다음 영화 순위 크롤링 하는 프로그램
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 # 다음 영화 순위 페이지 URL
 url = "https://movie.daum.net/ranking/reservation"
 
 # HTTP 요청 보내기
-response = requests.get(url)
+headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+response = requests.get(url, headers=headers)
 
 # HTTP 요청이 성공했는지 확인하기
 if response.status_code == 200:
